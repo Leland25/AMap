@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ga7bqslw87r"]
+
+[ext_resource type="Texture2D" uid="uid://cw4y5svecxcgv" path="res://Assets/PageGraident.png" id="1_7nxgq"]
+[ext_resource type="FontFile" uid="uid://b0cgy48lqp8yl" path="res://Assets/PaytoneOne-Regular.ttf" id="2_ptcan"]
+
+[node name="SearchPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 362.0
+offset_bottom = 780.0
+texture = ExtResource("1_7nxgq")
+expand_mode = 1
+
+[node name="Elements" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 160.0
+offset_right = 46.0
+offset_bottom = 234.0
+
+[node name="Title" type="Label" parent="Elements"]
+layout_mode = 0
+offset_top = 134.0
+offset_right = 361.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0.72549, 0.729412, 0.639216, 1)
+theme_override_fonts/font = ExtResource("2_ptcan")
+theme_override_font_sizes/font_size = 35
+text = "Furness College"
+horizontal_alignment = 1
+
+[node name="Slogon" type="Label" parent="Elements/Title"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 48.0
+offset_right = 273.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0.992157, 1, 0.792157, 1)
+text = "Please pick your Room"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 406.0
+offset_right = 335.0
+offset_bottom = 461.0
+item_count = 4
+popup/item_0/text = "CopperBox"
+popup/item_0/id = 0
+popup/item_1/text = "IBox"
+popup/item_1/id = 1
+popup/item_2/text = "LightBox"
+popup/item_2/id = 2
+popup/item_3/text = "AMTC"
+popup/item_3/id = 3

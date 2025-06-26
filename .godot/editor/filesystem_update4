@@ -1,8 +1,6 @@
-res://scenes/SiteHomePage.tscn
-res://scripts/arbutton.gd
-res://scripts/option_button.gd
-res://scripts/sitemapbutton.gd
 res://scenes/LoadupPage.tscn
 res://scenes/LoginPage.tscn
 res://scenes/PckBuilding.tscn
 res://scenes/PickRoom.tscn
+res://scenes/SiteHomePage.tscn
+res://scripts/send_code.gd

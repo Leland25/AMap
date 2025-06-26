@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ro83hwhso1nx"]
+[gd_scene load_steps=7 format=3 uid="uid://ro83hwhso1nx"]
 
 [ext_resource type="Texture2D" uid="uid://cw4y5svecxcgv" path="res://Assets/UI/PageGraident.png" id="1_5y3vd"]
 [ext_resource type="FontFile" uid="uid://b0cgy48lqp8yl" path="res://Assets/Fonts/PaytoneOne-Regular.ttf" id="2_k1vtq"]
 [ext_resource type="Script" uid="uid://cd4yt7ey7woeo" path="res://scripts/send_code.gd" id="4_h72pt"]
 [ext_resource type="Texture2D" uid="uid://busdj8mai3j0d" path="res://Assets/UI/Rectangle_Bordered_Small.webp" id="4_kx8ld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx8ld"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h72pt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="LoginPage" type="Control"]
 layout_mode = 3
@@ -76,13 +82,17 @@ expand_mode = 1
 [node name="LineEdit" type="LineEdit" parent="EmailBG"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 3.0
-offset_right = 329.0
-offset_bottom = 43.0
+offset_top = 9.0
+offset_right = 1439.0
+offset_bottom = 127.0
+scale = Vector2(0.218136, 0.218136)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_kx8ld")
 placeholder_text = "Enter email"
 flat = true
 
 [node name="EmailBG2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 123.0
 offset_top = 459.0
 offset_right = 234.0
@@ -93,9 +103,12 @@ expand_mode = 1
 [node name="SendCode" type="Button" parent="EmailBG2"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = -1.0
-offset_right = 106.0
-offset_bottom = 44.0
+offset_top = 6.0
+offset_right = 409.0
+offset_bottom = 124.0
+scale = Vector2(0.25083, 0.25083)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_h72pt")
 text = "Send code"
 flat = true
 script = ExtResource("4_h72pt")

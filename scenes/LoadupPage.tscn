@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8734me5r6yox"]
+
+[ext_resource type="Texture2D" uid="uid://cw4y5svecxcgv" path="res://Assets/UI/PageGraident.png" id="1_ms0bn"]
+[ext_resource type="FontFile" uid="uid://b0cgy48lqp8yl" path="res://Assets/Fonts/PaytoneOne-Regular.ttf" id="2_3klk5"]
+[ext_resource type="Script" uid="uid://b2bvln2v158pq" path="res://scripts/option_button.gd" id="4_3klk5"]
+
+[sub_resource type="Shader" id="Shader_h4fmf"]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+	COLOR = mix(red, yellow, UV.y);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g46d"]
+shader = SubResource("Shader_h4fmf")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ms0bn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oylk5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgmdm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="LoadupPage" type="Control"]
+material = SubResource("ShaderMaterial_5g46d")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 362.0
+offset_bottom = 780.0
+texture = ExtResource("1_ms0bn")
+expand_mode = 1
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 100.0
+offset_right = 360.0
+offset_bottom = 274.0
+
+[node name="Title" type="Label" parent="Elements"]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 466.0
+offset_bottom = 157.0
+scale = Vector2(0.773633, 0.773633)
+theme_override_colors/font_color = Color(0.72549, 0.729412, 0.639216, 1)
+theme_override_fonts/font = ExtResource("2_3klk5")
+theme_override_font_sizes/font_size = 80
+text = "AMap"
+horizontal_alignment = 1
+
+[node name="Slogon" type="Label" parent="Elements/Title"]
+layout_mode = 0
+offset_top = 111.0
+offset_right = 2065.0
+offset_bottom = 221.0
+scale = Vector2(0.225323, 0.225323)
+theme_override_colors/font_color = Color(0.992157, 1, 0.792157, 1)
+theme_override_font_sizes/font_size = 80
+text = "Your AR Map Guide !"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="."]
+material = SubResource("CanvasItemMaterial_ms0bn")
+layout_mode = 0
+offset_left = 73.0
+offset_top = 417.0
+offset_right = 296.0
+offset_bottom = 460.0
+scale = Vector2(0.344665, 0.344665)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_oylk5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wgmdm")
+flat = true
+item_count = 4
+popup/item_0/text = "Furness College"
+popup/item_0/id = 0
+popup/item_1/text = "Coming Soon"
+popup/item_1/id = 1
+popup/item_2/text = "Coming Soon"
+popup/item_2/id = 2
+popup/item_3/text = "Coming soon"
+popup/item_3/id = 3
+script = ExtResource("4_3klk5")
+
+[connection signal="item_selected" from="OptionButton" to="OptionButton" method="_on_item_selected"]

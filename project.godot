@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Amap"
+run/main_scene="uid://cxaqt1j3l7fpx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,3 +19,5 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=360
 window/size/viewport_height=780
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"

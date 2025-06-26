@@ -11,7 +11,7 @@ extends Button
 func _on_pressed() -> void:
 	if email.text == "":
 		errorlabel.text = ("Invalid email please try again")
-	elif "@sutdent.furness.ac.uk" in email.text:
+	elif "@student.furness.ac.uk" in email.text:
 		send_email()
 		print("Email Sent")
 	else:

@@ -106,4 +106,14 @@ popup/item_3/text = "Coming soon"
 popup/item_3/id = 3
 script = ExtResource("4_3klk5")
 
+[node name="Label" type="Label" parent="OptionButton"]
+layout_mode = 0
+offset_left = 52.2246
+offset_top = 26.1123
+offset_right = 530.225
+offset_bottom = 97.1123
+theme_override_fonts/font = ExtResource("2_3klk5")
+theme_override_font_sizes/font_size = 50
+text = "View avalible site's"
+
 [connection signal="item_selected" from="OptionButton" to="OptionButton" method="_on_item_selected"]

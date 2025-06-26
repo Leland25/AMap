@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxaqt1j3l7fpx"]
+[gd_scene load_steps=9 format=3 uid="uid://cxaqt1j3l7fpx"]
 
 [ext_resource type="Texture2D" uid="uid://cw4y5svecxcgv" path="res://Assets/UI/PageGraident.png" id="1_mqga5"]
 [ext_resource type="FontFile" uid="uid://b0cgy48lqp8yl" path="res://Assets/Fonts/PaytoneOne-Regular.ttf" id="2_ft8iu"]
 [ext_resource type="Texture2D" uid="uid://cqaf86vp68w8f" path="res://Assets/Images/FurnessCollege.jpg" id="3_60mxn"]
-[ext_resource type="Texture2D" uid="uid://bh48ytytmy8gn" path="res://Assets/UI/Rectangle_Bordered_Small.png" id="4_141mu"]
+[ext_resource type="Texture2D" uid="uid://busdj8mai3j0d" path="res://Assets/UI/Rectangle_Bordered_Small.webp" id="4_yo0vs"]
 [ext_resource type="Script" uid="uid://cws1l4p7w1xx6" path="res://scripts/sitemapbutton.gd" id="5_60mxn"]
 [ext_resource type="Script" uid="uid://c8nut8suau4nf" path="res://scripts/arbutton.gd" id="6_141mu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo0vs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt85y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="SiteHomePage" type="Control"]
 layout_mode = 3
@@ -63,53 +69,59 @@ expand_mode = 1
 
 [node name="ViewMap" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 385.0
-offset_right = 353.0
-offset_bottom = 499.0
-texture = ExtResource("4_141mu")
+offset_left = 198.0
+offset_top = 426.0
+offset_right = 334.0
+offset_bottom = 474.0
+texture = ExtResource("4_yo0vs")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="ViewMap"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 56.0
-offset_right = 115.0
-offset_bottom = 79.0
+offset_left = 15.0
+offset_top = 8.0
+offset_right = 390.0
+offset_bottom = 118.0
+scale = Vector2(0.284761, 0.284761)
+theme_override_font_sizes/font_size = 80
 text = "View Map"
 
 [node name="Sitemapbutton" type="Button" parent="ViewMap"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 42.0
-offset_right = 145.0
-offset_bottom = 91.0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 139.0
+offset_bottom = 48.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_yo0vs")
 flat = true
 script = ExtResource("5_60mxn")
 
 [node name="AR" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 382.0
-offset_right = 191.0
-offset_bottom = 498.0
-texture = ExtResource("4_141mu")
+offset_left = 24.0
+offset_top = 426.0
+offset_right = 158.0
+offset_bottom = 473.0
+texture = ExtResource("4_yo0vs")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="AR"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 57.0
-offset_right = 104.0
-offset_bottom = 80.0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 321.0
+offset_bottom = 115.0
+scale = Vector2(0.323282, 0.323282)
+theme_override_font_sizes/font_size = 80
 text = "AR Help"
 
 [node name="Arbutton" type="Button" parent="AR"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 39.0
-offset_right = 142.0
-offset_bottom = 95.0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 138.0
+offset_bottom = 51.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_kt85y")
 flat = true
 script = ExtResource("6_141mu")
 

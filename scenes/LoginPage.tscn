@@ -1,21 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ro83hwhso1nx"]
+[gd_scene load_steps=5 format=3 uid="uid://ro83hwhso1nx"]
 
 [ext_resource type="Texture2D" uid="uid://cw4y5svecxcgv" path="res://Assets/UI/PageGraident.png" id="1_5y3vd"]
 [ext_resource type="FontFile" uid="uid://b0cgy48lqp8yl" path="res://Assets/Fonts/PaytoneOne-Regular.ttf" id="2_k1vtq"]
-[ext_resource type="Texture2D" uid="uid://bc8k3uawndv6s" path="res://Assets/UI/Rectangle_Bordered_Small_Click.webp" id="3_kx8ld"]
+[ext_resource type="Script" uid="uid://cd4yt7ey7woeo" path="res://scripts/send_code.gd" id="4_h72pt"]
 [ext_resource type="Texture2D" uid="uid://busdj8mai3j0d" path="res://Assets/UI/Rectangle_Bordered_Small.webp" id="4_kx8ld"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx8ld"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kx8ld"]
-texture = ExtResource("4_kx8ld")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h72pt"]
-texture = ExtResource("3_kx8ld")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxqu8"]
-texture = ExtResource("4_kx8ld")
 
 [node name="LoginPage" type="Control"]
 layout_mode = 3
@@ -76,26 +64,41 @@ text = "Login with your organisation's account
 to confirm your identity"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="EmailBG" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 451.0
-offset_right = 512.0
-offset_bottom = 534.0
-scale = Vector2(0.497405, 0.497405)
-theme_override_fonts/font = ExtResource("2_k1vtq")
-theme_override_styles/focus = SubResource("StyleBoxFlat_kx8ld")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kx8ld")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_h72pt")
-theme_override_styles/normal = SubResource("StyleBoxTexture_gxqu8")
-expand_icon = true
+offset_left = 12.0
+offset_top = 402.0
+offset_right = 352.0
+offset_bottom = 446.0
+texture = ExtResource("4_kx8ld")
+expand_mode = 1
 
-[node name="Login" type="Label" parent="Button"]
+[node name="LineEdit" type="LineEdit" parent="EmailBG"]
 layout_mode = 0
-offset_left = 168.876
-offset_top = 10.0522
-offset_right = 378.876
-offset_bottom = 120.052
-scale = Vector2(0.515366, 0.515366)
-theme_override_font_sizes/font_size = 80
-text = "Login"
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 329.0
+offset_bottom = 43.0
+placeholder_text = "Enter email"
+flat = true
+
+[node name="EmailBG2" type="TextureRect" parent="."]
+offset_left = 123.0
+offset_top = 459.0
+offset_right = 234.0
+offset_bottom = 503.0
+texture = ExtResource("4_kx8ld")
+expand_mode = 1
+
+[node name="SendCode" type="Button" parent="EmailBG2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 106.0
+offset_bottom = 44.0
+text = "Send code"
+flat = true
+script = ExtResource("4_h72pt")
+
+[connection signal="text_submitted" from="EmailBG/LineEdit" to="EmailBG2/SendCode" method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="EmailBG2/SendCode" to="EmailBG2/SendCode" method="_on_pressed"]

@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_h72pt")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -58,10 +59,9 @@ horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
 offset_top = 323.0
-offset_right = 339.0
-offset_bottom = 372.0
+offset_right = 1748.0
+offset_bottom = 552.0
 scale = Vector2(0.205985, 0.205985)
 theme_override_colors/font_color = Color(0.40625, 0.395142, 0.395142, 1)
 theme_override_fonts/font = ExtResource("2_k1vtq")
@@ -91,7 +91,29 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_kx8ld")
 placeholder_text = "Enter email"
 flat = true
 
-[node name="EmailBG2" type="TextureRect" parent="."]
+[node name="OTPBG" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 402.0
+offset_right = 352.0
+offset_bottom = 446.0
+texture = ExtResource("4_kx8ld")
+expand_mode = 1
+
+[node name="LineSubmitOTP" type="LineEdit" parent="OTPBG"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 1439.0
+offset_bottom = 127.0
+scale = Vector2(0.218136, 0.218136)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_kx8ld")
+placeholder_text = "Enter OTP"
+flat = true
+
+[node name="EmailSubmitBG" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 123.0
 offset_top = 459.0
@@ -100,7 +122,7 @@ offset_bottom = 503.0
 texture = ExtResource("4_kx8ld")
 expand_mode = 1
 
-[node name="SendCode" type="Button" parent="EmailBG2"]
+[node name="SendCode" type="Button" parent="EmailSubmitBG"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 6.0
@@ -111,7 +133,30 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxFlat_h72pt")
 text = "Send code"
 flat = true
-script = ExtResource("4_h72pt")
 
-[connection signal="text_submitted" from="EmailBG/LineEdit" to="EmailBG2/SendCode" method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="EmailBG2/SendCode" to="EmailBG2/SendCode" method="_on_pressed"]
+[node name="OTPSubmitBG" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 123.0
+offset_top = 459.0
+offset_right = 234.0
+offset_bottom = 503.0
+texture = ExtResource("4_kx8ld")
+expand_mode = 1
+
+[node name="SubmitOTP" type="Button" parent="OTPSubmitBG"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 127.0
+scale = Vector2(0.216735, 0.216735)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_h72pt")
+text = "Submit OTP"
+flat = true
+
+[connection signal="text_submitted" from="EmailBG/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="OTPBG/LineSubmitOTP" to="." method="_on_line_submit_otp_text_submitted"]
+[connection signal="pressed" from="EmailSubmitBG/SendCode" to="." method="_on_send_code_pressed"]
+[connection signal="pressed" from="OTPSubmitBG/SubmitOTP" to="." method="_on_submit_otp_pressed"]

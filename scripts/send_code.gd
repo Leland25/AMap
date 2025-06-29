@@ -16,7 +16,6 @@ var verify_request: HTTPRequest
 
 func _on_send_response(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray):
 	var response = JSON.parse_string(body.get_string_from_utf8())
-	print(response.errorCode)
 	if response.errorCode == "INVALID_DOMAIN":
 		error_label.text = "Invalid email address,\n use your college email."
 		error_label.add_theme_color_override("font_color", Color.ORANGE_RED)
@@ -53,13 +52,13 @@ func _ready():
 	verify_request.request_completed.connect(_on_verify_response)
 
 func send_otp(email: String):
-	var url = "http://localhost:3000/send-otp"
+	var url = "http://193.123.189.214/send-otp"
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({"email": email})
 	http_request.request(url, headers, HTTPClient.METHOD_POST, body)
 
 func verify_otp(email: String, otp: String):
-	var url = "http://localhost:3000/verify-otp" 
+	var url = "http://193.123.189.214/verify-otp" 
 	var headers = ["Content-Type: application/json"]
 	var body = JSON.stringify({"email": email, "otp": otp})
 	verify_request.request(url, headers, HTTPClient.METHOD_POST, body)
